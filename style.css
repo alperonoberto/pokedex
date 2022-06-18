@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Lato:wght@400;700&family=Roboto+Mono&display=swap');
+
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    background-image: url(./wallpaper.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3 {
+    position: absolute;
+    top: 50px;
+}
+
+#input {
+    margin: 1em;
+    width: 90%;
+}
+
+.search > form {
+    display: flex;
+    align-items: center;
+}
+
+#buscar {
+    height: 2em;
+    width: 5em;
+    border: none;
+    border-radius: 1em;
+    background-color: lightsalmon;
+    text-align: center;
+}
+
+#buscar:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(237, 113, 64);;
+}
+
+.nextprev > button {
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    background-color: lightsalmon;
+}
+
+.nextprev > button:hover {
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    background-color: rgb(237, 113, 64);
+    color: white;
+    cursor: pointer;
+}
+
+#container {
+    margin: 1em;
+    background-color: darkgray;
+    width: 15em;
+    font-size:x-large;
+    border-radius: 0.4em;
+}
+
+.pokeName {
+    margin-top: 1em;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.pokeImage {
+    width: 10em;
+    height: 8em;
+}
+
+.pokeId {
+    margin-bottom: 1em;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
