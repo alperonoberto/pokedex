@@ -9,15 +9,15 @@ body {
     font-family: 'Inconsolata', monospace;
     font-family: 'Lato', sans-serif;
     font-family: 'Roboto Mono', monospace;
-    background-image: url(./wallpaper.jpg);
+    background-image: url(./images/wallpaper.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-h3 {
+small {
     position: absolute;
-    top: 50px;
+    top: 70px;
 }
 
 #input {
@@ -84,5 +84,25 @@ h3 {
     margin-bottom: 1em;
     color: white;
     text-shadow: 2px 2px black;
+}
+
+.types {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.types > p {
+    margin: 1em;
+}
+
+.stats {
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: medium;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 

@@ -3,12 +3,6 @@ const searchBtn = document.getElementById('buscar');
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 
-const nextPokemon = () => {
-    const id = document.getElementsByClassName('pokeId').childNode;
-    console.log(id);
-}
-
-nextBtn.addEventListener('click', nextPokemon);
 
 const searchPokemon = (event) => {
     event.preventDefault();
@@ -30,6 +24,8 @@ const renderPokemon = (data) => {
     const name = data.name;
     const id = data.id.toString();
 
+    localStorage.setItem('pokeId', id);
+
     const div = document.getElementById('container');
     const pokeName = document.createElement('div');
     const pokeImage = document.createElement('img');
@@ -38,8 +34,6 @@ const renderPokemon = (data) => {
     const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
 
     div.style.backgroundColor = randomColor;
-
-    console.log(div);
 
     pokeName.classList.add('pokeName');
     pokeImage.classList.add('pokeImage');
@@ -60,6 +54,53 @@ const renderPokemon = (data) => {
     pokeImage.setAttribute('width', width);
     pokeImage.setAttribute('height', height);
 
+    renderPokeStats(data);
+
+}
+
+const renderPokeStats = data => {
+    const divTypes = document.createElement('div');
+    divTypes.classList.add('types');
+
+    const divStats = document.createElement('div');
+    divStats.classList.add('stats');
+
+    const div = document.getElementById('container');
+
+    div.appendChild(divTypes);
+    div.appendChild(divStats);
+
+    const types = [];
+    for(let i = 0; i < data.types.length; i++){
+        types.push(data.types[i].type.name);
+    }
+    
+    types.forEach((type) => {
+        const text = document.createElement('p');
+        text.textContent = type;
+        divTypes.appendChild(text);
+    });
+
+    const hp = data.stats[0].base_stat;
+    const attack = data.stats[1].base_stat;
+    const defense = data.stats[2].base_stat;
+    const speed = data.stats[5].base_stat;
+
+    const hpName = document.createElement('p');
+    hpName.textContent = `HP ${hp}`;
+    divStats.appendChild(hpName);
+
+    const attackName = document.createElement('p');
+    attackName.textContent = `Attack ${attack}`;
+    divStats.appendChild(attackName);
+
+    const defenseName = document.createElement('p');
+    defenseName.textContent = `Defense ${defense}`;
+    divStats.appendChild(defenseName);
+
+    const speedName = document.createElement('p');
+    speedName.textContent = `Speed ${speed}`;
+    divStats.appendChild(speedName);
 }
 
 fetchPokemon('1');
@@ -72,6 +113,24 @@ function removePokemon() {
     document.body.appendChild(newDiv);
 }
 
+const nextPokemon = () => {
+    const actualId = localStorage.getItem('pokeId');
+    var actualIdNum = parseInt(actualId);
+    actualIdNum++;
+    removePokemon(actualId);
+    fetchPokemon(actualIdNum);
+}
+
+const prevPokemon = () => {
+    const actualId = localStorage.getItem('pokeId');
+    var actualIdNum = parseInt(actualId);
+    actualIdNum--;
+    removePokemon(actualId);
+    fetchPokemon(actualIdNum);
+}
+
+nextBtn.addEventListener('click', nextPokemon);
+prevBtn.addEventListener('click', prevPokemon);
 
 
 
