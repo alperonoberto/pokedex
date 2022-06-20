@@ -90,13 +90,15 @@ small {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1em;
     color: white;
     text-shadow: 2px 2px black;
 }
 
-.types > p {
-    margin: 1em;
+.types > img {
+    width: 3em;
 }
+
 
 .stats {
     color: white;

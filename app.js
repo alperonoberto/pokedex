@@ -7,7 +7,7 @@ const prevBtn = document.getElementById('prev');
 const searchPokemon = (event) => {
     event.preventDefault();
     const pokemon = searchTerm.value;
-    fetchPokemon(pokemon.toString());
+    fetchPokemon(pokemon.toString().toLowerCase());
     removePokemon();
 }
 
@@ -76,8 +76,9 @@ const renderPokeStats = data => {
     }
     
     types.forEach((type) => {
-        const text = document.createElement('p');
-        text.textContent = type;
+        const text = document.createElement('img');
+        // text.textContent = type;
+        text.setAttribute('src', `./images/typesPNG/${type}.png`)
         divTypes.appendChild(text);
     });
 
