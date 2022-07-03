@@ -15,17 +15,13 @@ body {
     background-size: cover;
 }
 
-small {
-    position: absolute;
-    top: 70px;
-}
-
 #input {
     margin: 1em;
     width: 90%;
 }
 
 .search > form {
+    margin-top: -20px;
     display: flex;
     align-items: center;
 }
@@ -106,5 +102,18 @@ small {
     font-size: medium;
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 1rem;
+}
+
+#github {
+    aspect-ratio: 1;
+    width: 3rem;
+    margin-top: .5em;
 }
 
